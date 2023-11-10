@@ -1,0 +1,144 @@
+import React, { useEffect, useState } from "react";
+// import ProductDetail from "./ProductDetail";
+// import Pagination from "./Pagination";
+
+const Product = () => {
+  const [product, setProduct] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalpage, settotalpage] = useState();
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("");
+  const [filter, setFilter] = useState("");
+  const [stock, setStock] = useState("");
+  const [rangeLowToHigh, setRangeLowToHigh] = useState(""); 
+  const [rangeHighToLow, setRangeHighToLow] = useState(""); 
+
+  console.log(rangeLowToHigh, rangeHighToLow);
+
+  const handleNext = () => {
+    setPage(page + 1);
+  };
+  const handlePre = () => {
+    setPage(page - 1);
+  };
+
+  const fetchdata = async () => {
+    try {
+      const sorting = sort ? &_sort=price&_order=${sort} : "";
+      const filtering = filter ? &category=${filter} : "";
+      const stocking = stock ? &stockavilable=${stock} : "";
+      const lowToHighRange = rangeLowToHigh ? &price_lte=${rangeLowToHigh} : "";
+      const highToLowRange = rangeHighToLow ? &price_gte=${rangeHighToLow} : "";
+
+      const response = await fetch(
+        http://localhost:3000/muskan?_page=${page}&_limit=3&name_like=${search}${sorting}${filtering}${stocking}${lowToHighRange}${highToLowRange}
+      );
+      console.log(response);
+      if (response.ok) {
+        const data = await response.json();
+        setProduct(data);
+        console.log(data);
+
+        var totalCount = response.headers.get("X-Total-Count");
+
+        settotalpage(parseInt(totalCount / 3));
+      } else {
+        console.log('Failed to fetch data.');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    const debouncing = setTimeout(() => {
+      fetchdata();
+    }, 1000);
+    return () => {
+      clearInterval(debouncing);
+    };
+  }, [search, page, sort, filter, stock, rangeLowToHigh, rangeHighToLow]);
+
+  const hanldeChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const hanldeSort = (e) => {
+    setSort(e.target.value);
+  };
+
+  const hanldeFilter = (e) => {
+    setFilter(e.target.value);
+  };
+
+  const hanldeStockFilter = (e) => {
+    setStock(e.target.value);
+  };
+
+  const handleRangeLowToHigh = (e) => {
+    setRangeLowToHigh(e.target.value);
+  };
+
+  const handleRangeHighToLow = (e) => {
+    setRangeHighToLow(e.target.value);
+  };
+
+  return (
+    <div>
+      <h1>Product Page</h1>
+      Search:
+      <input onChange={hanldeChange} placeholder="Search data" />
+
+      Sorting
+      <select onChange={hanldeSort}>
+        <option value="">All</option>
+        <option value="asc">ASC to DSC</option>
+        <option value="desc">DSC to ASC</option>
+      </select>
+      <br></br>
+      Filter by category:
+      <select onChange={hanldeFilter}>
+        <option value="">All</option>
+        <option value="iphone">iphone</option>
+        <option value="airpods">airPods</option>
+        <option value="watch">watch</option>
+      </select>
+      <br></br>
+      Filter by stockavilable:
+      <select onChange={hanldeStockFilter}>
+        <option value="">All</option>
+        <option value="true">true</option>
+        <option value="false">false</option>
+      </select>
+      <br></br>
+      Filter by Range of Price LOW TO HIGH:
+      <input
+        type="range"
+        min={0}
+        max={1100}
+        value={rangeLowToHigh}
+        onChange={handleRangeLowToHigh}
+      />
+      <br></br>
+      Filter by Range of Price HIGH TO LOW:
+      <input
+        type="range"
+        min={0}
+        max={1100}
+        value={rangeHighToLow}
+        onChange={handleRangeHighToLow}
+      />
+
+      {product.map((e) => {
+        return (
+          <div>
+            <ProductDetail e={e} />
+          </div>
+        );
+      })}
+      <Pagination pagi={page} handleNext={handleNext} handlePre={handlePre} totalpage={totalpage} />
+    </div>
+  );
+};
+
+export default Product;

@@ -1,0 +1,85 @@
+{
+  "mandeep": [
+    {
+      "name": "Mandeep Rahar",
+      "email": "vedican.v44@gmail.com",
+      "password": "12345",
+      "phoneNumber": "09802705402",
+      "city": "12345",
+      "id": 1
+    },
+    {
+      "name": "Mandeep Rahar",
+      "email": "vedican.v44@gmail.com",
+      "password": "11111",
+      "phoneNumber": "09802705402",
+      "city": "11111",
+      "id": 2
+    }
+  ],
+  "product": [
+    {
+      "name": "Tesla",
+      "title": "Bilkul nyi ki nyi car hai bhai",
+      "year": "2023",
+      "price": 900,
+      "mileage": "99",
+      "power": "80",
+      "speed": "233",
+      "image": "https://images.pexels.com/photos/1375849/pexels-photo-1375849.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "colorred": true,
+      "colorgreen": false,
+      "colorblack": true,
+      "colorwhite": true,
+      "colorblue": false,
+      "bulletpoint1": "mast car hai bhai",
+      "bulletpoint2": "kkitni hi chokri guma",
+      "bulletpoint3": "black seese bhi hai.. smj gya n",
+      "bulletpoint4": "niche lath bhi rkhe hai",
+      "bulletpoint5": "or k luee ga eb..kr yr buy",
+      "id": 3
+    },
+    {
+      "name": "Tesla",
+      "title": "Bilkul nyi ki nyi car hai bhai",
+      "year": "2023",
+      "price": 99,
+      "mileage": "99",
+      "power": "80",
+      "speed": "233",
+      "image": "https://images.pexels.com/photos/1375849/pexels-photo-1375849.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "colorred": true,
+      "colorgreen": false,
+      "colorblack": true,
+      "colorwhite": true,
+      "colorblue": false,
+      "bulletpoint1": "mast car hai bhai",
+      "bulletpoint2": "kkitni hi chokri guma",
+      "bulletpoint3": "black seese bhi hai.. smj gya n",
+      "bulletpoint4": "niche lath bhi rkhe hai",
+      "bulletpoint5": "or k luee ga eb..kr yr buy",
+      "id": 4
+    },
+    {
+      "name": "Tesla",
+      "title": "Bilkul nyi ki nyi car hai bhai",
+      "year": "2023",
+      "price": 9999,
+      "mileage": "99",
+      "power": "80",
+      "speed": "233",
+      "image": "https://images.pexels.com/photos/1375849/pexels-photo-1375849.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "colorred": false,
+      "colorgreen": false,
+      "colorblack": true,
+      "colorwhite": true,
+      "colorblue": false,
+      "bulletpoint1": "mast car hai bhai",
+      "bulletpoint2": "kkitni hi chokri guma",
+      "bulletpoint3": "black seese bhi hai.. smj gya n",
+      "bulletpoint4": "niche lath bhi rkhe hai",
+      "bulletpoint5": "or k luee ga eb..kr yr buy",
+      "id": 5
+    }
+  ]
+}
